@@ -1,6 +1,6 @@
 # BCA Programming Repo
 
-Welcome to my college assignment repository! Here, you'll find a collection of assignments, projects, and tasks related to my BCA program.
+Welcome to my BCA Programming repository! Here, you'll find a collection of assignments, projects, and tasks related to my BCA program.
 
 ## Structure
 
