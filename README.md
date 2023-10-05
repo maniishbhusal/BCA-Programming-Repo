@@ -1,4 +1,4 @@
-# College Assignment Repository
+# BCA Programming Repo
 
 Welcome to my college assignment repository! Here, you'll find a collection of assignments, projects, and tasks related to my BCA program.
 
