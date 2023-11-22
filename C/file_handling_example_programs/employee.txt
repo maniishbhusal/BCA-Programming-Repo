@@ -1,0 +1,4 @@
+Name=Manish Bhusal
+ID=1
+Address=Ghorahi Dang
+Salary=123456.66
