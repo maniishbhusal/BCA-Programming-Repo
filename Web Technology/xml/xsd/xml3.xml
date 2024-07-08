@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visitor-list>
+    <visitor visitor-number="1" name="John Doe" mobile="9876543210" department="IT"
+        contact-person="Jane Smith" date="2023-06-01" entry-time="09:30:00" exit-time="11:15:00" />
+    <visitor visitor-number="2" name="Sarah Lee" mobile="7890123456" department="Accounts"
+        contact-person="" date="2023-06-02" entry-time="14:00:00" exit-time="16:30:00" />
+    <visitor visitor-number="3" name="Michael Johnson" mobile="5678901234" department="Exam"
+        contact-person="David Brown" date="2023-06-03" entry-time="10:45:00" exit-time="12:20:00" />
+    <visitor visitor-number="4" name="Emily Chen" mobile="1234567890" department="Admin"
+        contact-person="" date="2023-06-04" entry-time="13:15:00" exit-time="15:00:00" />
+</visitor-list>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- write a valid and well-formed xml to store details of visitor list of ABC college with following details and validate record with following information.
+- record must include details of name, mobile, department, related contact person, date, entry time, exit time and visitor number as attribute.
+- mobile must be 10 digit.
+- visitor may not have any contact person.
+- record must belongs to Admin, IT, Account and Exam Department.
+ -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="visitor-list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="visitor" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="visitor-number" type="xs:positiveInteger" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="mobile" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:length value="10" />
+                  <xs:pattern value="\d{10}" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="department" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Admin" />
+                  <xs:enumeration value="IT" />
+                  <xs:enumeration value="Accounts" />
+                  <xs:enumeration value="Exam" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="contact-person" type="xs:string" />
+            <xs:attribute name="date" type="xs:date" use="required" />
+            <xs:attribute name="entry-time" type="xs:time" use="required" />
+            <xs:attribute name="exit-time" type="xs:time" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
