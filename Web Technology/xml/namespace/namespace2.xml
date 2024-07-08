@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Write an XML document to store the name, id, address and phone number of
+3 students and 2 teachers of a college. Solve the name conflict using XML
+name spacing. -->
+
+<root xmlns:a="https://www.student1.org/" xmlns:b="https://www.student2.org/" xmlns:c="https://www.student3.org/" xmlns:d="https://www.teacher1.org/" xmlns:e="https://www.teacher2.org/">
+    <a:student>
+        <a:name>Manish</a:name>
+        <a:id>1</a:id>
+        <a:address>Tulsipur</a:address>
+        <a:phone>98888273823</a:phone>
+    </a:student>
+
+    <b:student>
+        <b:name>Benjamin</b:name>
+        <b:id>2</b:id>
+        <b:address>Tulsipur</b:address>
+        <b:phone>7364733744</b:phone>
+    </b:student>
+
+    <c:student>
+        <c:name>Fnays</c:name>
+        <c:id>3</c:id>
+        <c:address>Tokyo</c:address>
+        <c:phone>78238723</c:phone>
+    </c:student>
+
+    <d:teacher>
+        <d:name>Grim</d:name>
+        <d:id>4</d:id>
+        <d:address>Ghorahi</d:address>
+        <d:phone>9893883838</d:phone>
+    </d:teacher>
+
+    <e:teacher>
+        <e:name>Fantus</e:name>
+        <e:id>5</e:id>
+        <e:address>Ghorahi</e:address>
+        <e:phone>747373733</e:phone>
+    </e:teacher>
+</root>

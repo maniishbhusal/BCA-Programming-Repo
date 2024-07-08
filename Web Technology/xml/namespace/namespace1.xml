@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Write an XML code to make a table to store the fruits name in its column
+and also again create another tag with table name and store the details of the
+real tables used in offices. Solve the tag name conflict using XML
+Namespacing. -->
+<root xmlns:h="http://www.w3.org/tr/html4/" xmlns:f="http://www.w3schools.org/">
+    <h:table>
+        <h:tr>
+            <h:td>apples</h:td>
+            <h:td>bananas</h:td>
+        </h:tr>
+    </h:table>
+
+    <f:table>
+        <f:name>Wood</f:name>
+        <f:width>400</f:width>
+        <f:height>120</f:height>
+    </f:table>
+    
+</root>

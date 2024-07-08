@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<student>
+    <name>Manish</name>
+    <addresses>
+        <address type="permanent">Ghorahi</address>
+        <address type="temporary">Kathmandu</address>
+    </addresses>
+    <phone>7774774</phone>
+    <email>manish@gmail.com</email>
+</student>

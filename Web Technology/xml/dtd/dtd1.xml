@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!-- external dtd -->
+<!-- <!DOCTYPE note SYSTEM "note.dtd"> -->
+
+<!-- Write DTD for the following XML document:
+
+<note>
+<to>Radha</to>
+<from>Sita</from>
+<subject>This is my first xml using DTD</subject>
+<body>This is my first message for XML DTD</body>
+</note> -->
+
+<!-- internal dtd -->
+<!DOCTYPE note[
+    <!ELEMENT note (to,from,subject,body)>
+    <!ELEMENT to (#PCDATA)>
+    <!ELEMENT from (#PCDATA)>
+    <!ELEMENT subject (#PCDATA)>
+    <!ELEMENT body (#PCDATA)>
+]>
+
+<note>
+    <to>manish</to>
+    <from>benjamin</from>
+    <subject>this is my first xml using internal dtd</subject>
+    <body>this is the body of dtd</body>
+</note>
