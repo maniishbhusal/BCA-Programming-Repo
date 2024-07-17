@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XML Schema with various restriction and pattern:-
+    - City has list of city name: Kathmandu, Pokhara, Chitwan, Butwal, Biratnagar
+    - Gender has one of two value (male, female)
+    - Area code has 3 digit value
+    - Phone has xxx-xxxx digit format -->
+<phoneNumbers>
+  <entries>
+    <entry>
+      <name gender="male">
+        <first>Ram</first>
+        <last>Thapa</last>
+      </name>
+      <phone areaCode="319">335-1112</phone>
+      <city>Pokhara</city>
+    </entry>
+       <entry>
+      <name gender="male">
+        <first>Ram</first>
+        <last>Thapa</last>
+      </name>
+      <phone areaCode="319">335-1112</phone>
+      <city>Pokhara</city>
+    </entry>
+       <entry>
+      <name gender="female">
+        <first>Ram</first>
+        <last>Thapa</last>
+      </name>
+      <phone areaCode="319">335-1112</phone>
+      <city>Pokhara</city>
+    </entry>
+  </entries>
+</phoneNumbers>

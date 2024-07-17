@@ -1,0 +1,73 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <!-- Define phoneType globally -->
+  <xs:simpleType name="phoneType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{3}-\d{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="phoneNumbers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="entries">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="entry" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="first" type="xs:string"/>
+                          <xs:element name="last" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="gender">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="male|female"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+
+                    <!-- Correct phone element using globally defined phoneType -->
+                    <xs:element name="phone">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="phoneType">
+                            <xs:attribute name="areaCode">
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:pattern value="\d{3}"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="city">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="Pokhara"/>
+                          <xs:enumeration value="Kathmandu"/>
+                          <xs:enumeration value="Chitwan"/>
+                          <xs:enumeration value="Butwal"/>
+                          <xs:enumeration value="Biratnagar"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
