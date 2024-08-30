@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container div {
+  text-align: center;
+  background-color: aliceblue;
+  width: 100%;
+  padding: 32px;
+}
+
+p {
+  width: 52%;
+  font-size: 22px;
+  margin: 12px auto;
+}
+
+.email,
+button {
+  width: 320px;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+}
+
+button {
+  background-color: rgb(240, 94, 26);
+}
