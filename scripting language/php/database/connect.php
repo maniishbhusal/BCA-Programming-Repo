@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "root";
+$password = "";
 $dbname = "mydb";
 
 // Create connection
@@ -32,6 +32,14 @@ if ($conn->query($sql) === TRUE) {
   echo "Table users created successfully";
 } else {
   echo "Error creating table: " . $conn->error;
+}
+
+// Drop database
+$sql = "DROP DATABASE IF EXISTS $dbname";
+if ($conn->query($sql) === TRUE) {
+    echo "Database dropped successfully";
+} else {
+    echo "Error dropping database: " . $conn->error;
 }
 
 $conn->close();
