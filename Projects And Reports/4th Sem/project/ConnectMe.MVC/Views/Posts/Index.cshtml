@@ -1,0 +1,218 @@
+﻿@model IEnumerable<Post>
+
+@{
+    ViewData["Title"] = "ConnectMe";
+}
+
+<div class="social-media-layout">
+    <!-- Left Sidebar -->
+    <div class="left-sidebar">
+        <div class="sidebar-logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt6VFb4SSmM8FsJvbjG96_0hzNAlrs7R1-cw&s" alt="ConnectMe Logo" />
+        </div>
+        <nav class="sidebar-menu">
+            <ul>
+                <li class="active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </li>
+                <li>
+                    <i class="fas fa-user-friends"></i>
+                    <span>Friends</span>
+                </li>
+                <li>
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                </li>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <span>Messages</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <img src="~/images/profile.png" alt="Profile" class="profile-avatar" />
+                <div class="user-details">
+                    <h6>Benjamin Graham</h6>
+                    <p>@@Benjamin</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="content-header">
+            <button class="btn btn-mobile-menu d-md-none" id="toggleLeftSidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <h2>Feed</h2>
+            <button class="btn btn-create-post" onclick="togglePostForm()">
+                <i class="fas fa-plus"></i> Create Post
+            </button>
+        </div>
+
+        <!-- Post Creation Form -->
+        <div id="postCreationForm" class="card post-creation-card shadow-lg d-none">
+            <div class="card-body">
+                <div class="post-form-header">
+                    <h4>Create a New Post</h4>
+                    <button id="closePostForm" class="btn-close-form">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form asp-action="Create" enctype="multipart/form-data" method="post">
+                    <input name="Title" class="form-control post-title" placeholder="What's on your mind?" required />
+                    <textarea name="Description" class="form-control post-description" rows="4" placeholder="Write your post..." required></textarea>
+                    <div class="post-actions">
+                        <label for="imageUpload" class="btn btn-upload-image">
+                            <i class="fas fa-image"></i> Add Photo
+                        </label>
+                        <input type="file" id="imageUpload" name="image" accept="image/*" class="d-none" />
+                        <button type="submit" class="btn btn-primary btn-post">
+                            <i class="fas fa-paper-plane"></i> Post
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Posts Feed -->
+        <div class="posts-feed">
+            @foreach (var post in Model)
+            {
+                <div class="card post-card" id="post-@post.PostId">
+                    <div class="post-header">
+                        <div class="user-info">
+                            <img src="~/images/profile.png" alt="User Avatar" class="user-avatar" />
+                            <div>
+                                <h5>@post.Title</h5>
+                                <small>@post.CreatedAt.ToString("MMM dd, yyyy HH:mm")</small>
+                            </div>
+                        </div>
+                        <div class="post-actions-dropdown">
+                            <button class="btn-post-options" data-bs-toggle="dropdown">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#" onclick="editPost(@post.PostId)">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="#" onclick="deletePost(@post.PostId)">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>@post.Description</p>
+                        @if (!string.IsNullOrEmpty(post.ImagePath))
+                        {
+                            <div class="post-image-container">
+                                <img src="@post.ImagePath" alt="Post image" />
+                            </div>
+                        }
+                    </div>
+                    <div class="post-interactions">
+                        <button class="btn-interaction">
+                            <i class="fas fa-thumbs-up"></i> <span>Like</span>
+                        </button>
+                        <button class="btn-interaction">
+                            <i class="fas fa-comment"></i> <span>Comment</span>
+                        </button>
+                        <button class="btn-interaction">
+                            <i class="fas fa-share"></i> <span>Share</span>
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="right-sidebar">
+        <div class="trending-section">
+            <h4>Trending</h4>
+            <ul class="trending-list">
+                <li>#TechInnovation</li>
+                <li>#ArtificialIntelligence</li>
+                <li>#SustainableTech</li>
+                <li>#GlobalConnectivity</li>
+            </ul>
+        </div>
+        <div class="suggestions-section">
+            <h4>People You May Know</h4>
+            <div class="suggestion-card">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/002/332/small/ablack-man-avatar-character-isolated-icon-free-vector.jpg" alt="Suggested Friend" />
+                <div>
+                    <h6>Emily Chen</h6>
+                    <button class="btn btn-follow">Follow</button>
+                </div>
+            </div>
+            <div class="suggestion-card">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/002/332/small/ablack-man-avatar-character-isolated-icon-free-vector.jpg" alt="Suggested Friend" />
+                <div>
+                    <h6>Alex Rodriguez</h6>
+                    <button class="btn btn-follow">Follow</button>
+                </div>
+            </div>
+            <div class="suggestion-card">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/002/332/small/ablack-man-avatar-character-isolated-icon-free-vector.jpg" alt="Suggested Friend" />
+                <div>
+                    <h6>Maria Gonzalez</h6>
+                    <button class="btn btn-follow">Follow</button>
+                </div>
+            </div>
+            <div class="suggestion-card">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/002/332/small/ablack-man-avatar-character-isolated-icon-free-vector.jpg" alt="Suggested Friend" />
+                <div>
+                    <h6>John Smith</h6>
+                    <button class="btn btn-follow">Follow</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title">Edit Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm" enctype="multipart/form-data">
+                    <input type="hidden" id="editPostId" />
+                    <div class="mb-3">
+                        <input id="editTitle" name="Title" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <textarea id="editDescription" name="Description"
+                                  class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="file-upload">
+                        <button class="btn btn-light" type="button">
+                            <i class="fas fa-image me-2"></i>Change Photo
+                        </button>
+                        <input type="file" id="editImage" name="image" accept="image/*" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" onclick="updatePost()">
+                    <i class="fas fa-save me-2"></i>Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
