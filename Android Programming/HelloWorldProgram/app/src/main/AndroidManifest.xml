@@ -16,6 +16,11 @@
             android:exported="false" />
         <activity
             android:name=".SendDataActivity"
+            android:exported="false" />
+        <activity android:name=".ReceiveDataActivity" />
+
+        <activity
+            android:name=".FragmentContainerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ReceiveDataActivity" />
+
     </application>
 
 </manifest>
