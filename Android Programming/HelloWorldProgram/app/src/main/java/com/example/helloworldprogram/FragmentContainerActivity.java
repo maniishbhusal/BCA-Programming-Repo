@@ -12,8 +12,14 @@ public class FragmentContainerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fragment_container);
 
         if (savedInstanceState == null) {
+            // Add FragmentOne to the first container
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, new SumCalculatorFragment())
+                    .add(R.id.fragment_container_one, new FragmentOne())
+                    .commit();
+
+            // Add FragmentTwo to the second container
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container_two, new FragmentTwo())
                     .commit();
         }
     }
