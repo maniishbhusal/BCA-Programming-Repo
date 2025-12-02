@@ -12,15 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorldProgram">
         <activity
-            android:name=".AndroidActivityLifeCycle"
-            android:exported="false" />
-        <activity
-            android:name=".SendDataActivity"
-            android:exported="false" />
-        <activity android:name=".ReceiveDataActivity" />
-
-        <activity
-            android:name=".FragmentContainerActivity"
+            android:name=".SimpleInterestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
