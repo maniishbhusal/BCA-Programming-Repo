@@ -1,4 +1,3 @@
-
 // Java Event Handling Code
 import javax.swing.*;
 import java.awt.event.*;
